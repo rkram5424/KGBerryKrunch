@@ -65,7 +65,7 @@ Builder.load_string("""
 					text: 'Encode'
 					on_press: 
 						if decode_opt.state == 'down' and input_text.text != '' and pass_text.text != '': root.run_button('D', input_text.text, pass_text.text)
-						elif decode_opt.state == 'down' and input_text.text != '' and pass_text.text != '': root.run_button('E', input_text.text, pass_text.text)
+						elif encode_opt.state == 'down' and input_text.text != '' and pass_text.text != '': root.run_button('E', input_text.text, pass_text.text)
 						else: pass
 				Label:
 			TextInput:
