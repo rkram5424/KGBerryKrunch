@@ -37,14 +37,14 @@ Builder.load_string("""
 					text: 'Encode'
 					group: 'code'
 					state: 'down'
-					on_press: input_text.text = ''; pass_text.text = ''; result_text.text = ''
+					on_press: input_text.text = ''; pass_text.text = ''; result_text.text = ''; self.state = 'down'
 					on_state: 
 						if self.state == 'down': run_button.text = 'Encode';input_text.hint_text = 'Message to Encode'
 				ToggleButton:
 					id: decode_opt
 					text: 'Decode'
 					group: 'code'
-					on_press: input_text.text = ''; pass_text.text = ''; result_text.text = ''
+					on_press: input_text.text = ''; pass_text.text = ''; result_text.text = ''; self.state = 'down'
 					on_state: 
 						if self.state == 'down': run_button.text = 'Decode';input_text.hint_text = 'Message to Decode'
 			TextInput:
