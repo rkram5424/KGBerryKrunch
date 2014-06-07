@@ -37,14 +37,18 @@ Builder.load_string("""
 					text: 'Encode'
 					group: 'code'
 					state: 'down'
-					on_press: input_text.text = ''; pass_text.text = ''; result_text.text = ''; self.state = 'down'
+					on_press: 
+						if self.state == 'down': input_text.text = ''; pass_text.text = ''; result_text.text = ''
+						self.state = 'down'
 					on_state: 
 						if self.state == 'down': run_button.text = 'Encode';input_text.hint_text = 'Message to Encode'
 				ToggleButton:
 					id: decode_opt
 					text: 'Decode'
 					group: 'code'
-					on_press: input_text.text = ''; pass_text.text = ''; result_text.text = ''; self.state = 'down'
+					on_press: 
+						if self.state == 'down': input_text.text = ''; pass_text.text = ''; result_text.text = ''
+						self.state = 'down'
 					on_state: 
 						if self.state == 'down': run_button.text = 'Decode';input_text.hint_text = 'Message to Decode'
 			TextInput:
@@ -60,8 +64,9 @@ Builder.load_string("""
 					id: run_button
 					text: 'Encode'
 					on_press: 
-						if decode_opt.state == 'down': root.run_button('D', input_text.text, pass_text.text)
-						else: root.run_button('E', input_text.text, pass_text.text)
+						if decode_opt.state == 'down' and input_text.text != '' and pass_text.text != '': root.run_button('D', input_text.text, pass_text.text)
+						elif decode_opt.state == 'down' and input_text.text != '' and pass_text.text != '': root.run_button('E', input_text.text, pass_text.text)
+						else: pass
 				Label:
 			TextInput:
 				size_hint_y: 3
