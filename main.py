@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
+from kivy.core.window import Window
 from kivy.core.clipboard import Clipboard
 from kivy.lang import Builder
 import KGBerryKrunch
@@ -85,6 +86,7 @@ Builder.load_string("""
 
 class KGBerryKrunchApp(App):
 	def build(self):
+		Window.size = (480,700)
 		return MainScreen()
 	
 if __name__ == '__main__':
